@@ -14,9 +14,11 @@ from datetime import datetime, timedelta
 ELEVEN_LABS_API_KEY = os.environ['ELEVEN_LABS_API_KEY']
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 MODEL_NAME = 'gpt-3.5-turbo'
-VOICE_ID = "LcfcDJNUP1GQjkzn1xUU" # Emily
+# VOICE_ID = "LcfcDJNUP1GQjkzn1xUU" # Emily
 # VOICE_ID = "zcAOhNBS3c14rBihAFp1" # swedish
-# VOICE_ID = "oM29XZNJ7O9aApNNeSVY" # Paul
+VOICE_ID = "oM29XZNJ7O9aApNNeSVY" # Paul
+CHUNK_SIZE = 1024
+
 
 def get_audio_length(file_path):
     """Get the duration of an audio file in seconds."""
@@ -30,7 +32,6 @@ def get_sha256(text):
 # Given some arbitrary text, create an 
 # audio file that can play the text
 def create_audio_file(text):
-    CHUNK_SIZE = 1024
     url = f"https://api.elevenlabs.io/v1/text-to-speech/{VOICE_ID}"
 
     headers = {
@@ -96,21 +97,36 @@ def get_text_from_time(input_time):
 
 print("Creating audio file")
 
-st.title("Help prompt the user")
+st.title("Lethelink AI")
 
 # UI input
 memory_span = st.number_input("Memory Span (minutes)")
 schedule = st.text_area("Schedule")
+context = st.text_area("Context")
 
 start_speaking = st.button("Start Speaking")
 
 def call_chatgpt(content):
-    print("Calling chatGPT: ", content)
-    completion = openai.ChatCompletion.create(model=MODEL_NAME, messages=[{
-    "role": "user", 
-    "content": content}])
-    result = completion.choices[0].message.content
-    print("completion: ", result)
+    # Make sure the 'audio' folder exists
+    if not os.path.exists('prompts'):
+        os.makedirs('prompts')
+    filename = os.path.join('prompts', f"{get_sha256(content)}).txt")
+    result = ''
+    if os.path.exists(filename):
+        print("Loading completion from file: ", filename)
+        with open(filename, 'r') as f:
+            result = f.read()
+    else:
+        print("Calling chatGPT: ", content)
+        completion = openai.ChatCompletion.create(model=MODEL_NAME, messages=[{
+            "role": "user", 
+            "content": content}])
+        result = completion.choices[0].message.content
+        print("Writing completion to file: ", result)
+        with open(filename, 'w') as f:
+            f.write(result)
+
+    print("returning result: ", result)
     return result
 
 call_chatgpt("Hello how are you?")
