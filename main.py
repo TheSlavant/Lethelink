@@ -13,8 +13,8 @@ from datetime import datetime, timedelta
 
 ELEVEN_LABS_API_KEY = os.environ['ELEVEN_LABS_API_KEY']
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-# MODEL_NAME = 'gpt-3.5-turbo'
-MODEL_NAME = 'gpt-4'
+MODEL_NAME = 'gpt-3.5-turbo'
+# MODEL_NAME = 'gpt-4'
 # VOICE_ID = "LcfcDJNUP1GQjkzn1xUU" # Emily
 # VOICE_ID = "zcAOhNBS3c14rBihAFp1" # swedish
 VOICE_ID = "oM29XZNJ7O9aApNNeSVY" # Paul
