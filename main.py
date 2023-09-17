@@ -101,9 +101,10 @@ print("Creating audio file")
 st.title("Lethelink AI")
 
 # UI input
-memory_window = st.number_input("Memory Span (minutes)")
-schedule = st.text_area("Schedule")
+time_str = st.text_input("Current Time")
+# memory_window = st.number_input("Memory Span (minutes)")
 context = st.text_area("Context")
+schedule = st.text_area("Schedule")
 
 start_speaking = st.button("Start Speaking")
 
@@ -150,25 +151,14 @@ def generate_nudge(time, schedule, context):
     prompt = "You are Paul, the son of Ann, an 86 year old woman with Alzheimer's. Given the context, today's schedule, and the current time, provide a soothing reminder that will help Ann orient in time and space. Keep the reminder under 3 sentences long. For example “Mom, you are at the AGI house, you are safe and everything is fine. I'm presenting inside right now, I will come and get you soon. We will have lunch soon. "
     return call_chatgpt(f"{prompt} time: {time} schedule: {schedule} context: {context}")
 
-# Generate an interval to prompt the user every n minutes
-# times = generate_intervals(memory_window)
-
-times = ['11:45am', '6:30pm']
-
 if start_speaking:
-    current_time = st.title(f"Current time: {times[0]}")
-    for time_str in times:
-        current_time.empty()
-        current_time = st.title(f"Current time: {time_str}")
-        text = generate_nudge(time_str, schedule, context)
-        # text = get_text_from_time(time_str)
-        audio_file_path = create_audio_file(text)
-        audio_length = get_audio_length(audio_file_path)
-        data_url = file_to_data_url(audio_file_path)
-        html_string = f"<audio controls autoplay><source src='{data_url}' type='audio/mp3'></audio>"
-        sound = st.empty()
-        sound.markdown(html_string, unsafe_allow_html=True)
-        print(f"duration {int(audio_length) + 1}")
-        time.sleep(int(audio_length) + 1)  # Adding 1 second to ensure the audio finishes playing
-        sound.empty()
-        # time.sleep(memory_window * 60)
+    text = generate_nudge(time_str, schedule, context)
+    audio_file_path = create_audio_file(text)
+    audio_length = get_audio_length(audio_file_path)
+    data_url = file_to_data_url(audio_file_path)
+    html_string = f"<audio controls autoplay><source src='{data_url}' type='audio/mp3'></audio>"
+    sound = st.empty()
+    sound.markdown(html_string, unsafe_allow_html=True)
+    print(f"duration {int(audio_length) + 1}")
+    time.sleep(int(audio_length) + 1)  # Adding 1 second to ensure the audio finishes playing
+    sound.empty()
