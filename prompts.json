@@ -1,0 +1,42 @@
+[
+    {
+        "time": "6:00am",
+        "message": "You are safe in your bedroom. You just woke up. It's a new day, and everything is okay."
+    },
+    {
+        "time": "6:10am",
+        "message": "You are safe in your bedroom. Take a moment to stretch and greet the day. Everything is fine."
+    },
+    {
+        "time": "6:20am",
+        "message": "You are safe. Soon, you'll start your morning hygiene routine. Everything is okay."
+    },
+    {
+        "time": "6:30am",
+        "message": "You are safe in the bathroom. You're getting ready for the day. This is your routine, and everything is okay."
+    },
+    {
+        "time": "6:40am",
+        "message": "You are safe. You are taking care of yourself in the bathroom. Remember, everything is fine."
+    },
+    {
+        "time": "6:50am",
+        "message": "You are safe. Soon, it will be time for breakfast. Everything is okay."
+    },
+    {
+        "time": "7:00am",
+        "message": "You are safe in the kitchen/dining area. You are having breakfast. This is your favorite meal, and everything is okay."
+    },
+    {
+        "time": "7:10am",
+        "message": "You are safe. You're enjoying your breakfast. Take your time, and remember everything is fine."
+    },
+    {
+        "time": "7:20am",
+        "message": "You are safe. After eating, you'll have some relaxation time. Everything is okay."
+    },
+    {
+        "time": "7:30am",
+        "message": "You are safe in the living room. You are relaxing with light music. This is your relaxation time, and everything is okay."
+    }
+]
