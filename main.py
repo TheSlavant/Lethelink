@@ -13,7 +13,8 @@ from datetime import datetime, timedelta
 
 ELEVEN_LABS_API_KEY = os.environ['ELEVEN_LABS_API_KEY']
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-MODEL_NAME = 'gpt-3.5-turbo'
+# MODEL_NAME = 'gpt-3.5-turbo'
+MODEL_NAME = 'gpt-4'
 # VOICE_ID = "LcfcDJNUP1GQjkzn1xUU" # Emily
 # VOICE_ID = "zcAOhNBS3c14rBihAFp1" # swedish
 VOICE_ID = "oM29XZNJ7O9aApNNeSVY" # Paul
@@ -100,7 +101,7 @@ print("Creating audio file")
 st.title("Lethelink AI")
 
 # UI input
-memory_span = st.number_input("Memory Span (minutes)")
+memory_window = st.number_input("Memory Span (minutes)")
 schedule = st.text_area("Schedule")
 context = st.text_area("Context")
 
@@ -145,15 +146,22 @@ def generate_intervals(n, start_time='6:00am', end_time='8:00am'):
 
     return intervals
 
+def generate_nudge(time, schedule, context):
+    prompt = "You are Paul, the son of Ann, an 86 year old woman with Alzheimer's. Given the context, today's schedule, and the current time, provide a soothing reminder that will help Ann orient in time and space. Keep the reminder under 3 sentences long. For example “Mom, you are at the AGI house, you are safe and everything is fine. I'm presenting inside right now, I will come and get you soon. We will have lunch soon. "
+    return call_chatgpt(f"{prompt} time: {time} schedule: {schedule} context: {context}")
+
 # Generate an interval to prompt the user every n minutes
-times = generate_intervals(memory_span)
+# times = generate_intervals(memory_window)
+
+times = ['11:45am', '6:30pm']
 
 if start_speaking:
     current_time = st.title(f"Current time: {times[0]}")
     for time_str in times:
         current_time.empty()
         current_time = st.title(f"Current time: {time_str}")
-        text = get_text_from_time(time_str)
+        text = generate_nudge(time_str, schedule, context)
+        # text = get_text_from_time(time_str)
         audio_file_path = create_audio_file(text)
         audio_length = get_audio_length(audio_file_path)
         data_url = file_to_data_url(audio_file_path)
@@ -163,4 +171,4 @@ if start_speaking:
         print(f"duration {int(audio_length) + 1}")
         time.sleep(int(audio_length) + 1)  # Adding 1 second to ensure the audio finishes playing
         sound.empty()
-        # time.sleep(memory_span * 60)
+        # time.sleep(memory_window * 60)
