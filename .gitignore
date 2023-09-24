@@ -1,0 +1,4 @@
+# environment variables
+.env
+audio/
+prompts/
