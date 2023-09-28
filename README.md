@@ -2,15 +2,15 @@
 
 # Lethelink
 
-Lethelink is an interface to create grounding messages for people who suffer from anterograde amnesia. The messages can be delivered to the person's hearing aid on a schedule to prevent episodes of disorientation.
+Lethelink is an interface to create grounding messages for people who suffer from anterograde amnesia, which a popular symptom of Alzheimer's. The messages can be delivered to the person's hearing aid on a schedule to prevent episodes of disorientation.
 
 ## Introduction
 
-Caregivers can use Lethelink to create messages (anchors) that ground their Patient in reality, remind them they are safe, and help them orient in time and space. 
+Caregivers can use Lethelink to create nudges that ground their Patient in reality, remind them they are safe, and help them orient in time and space. 
 
-🌿 Anchors are context-aware. They are created based on the context about the Patient and their daily schedule, which can be provided by the Caregiver, and the current time. For example, if the Caregiver mentioned that "lunch is at 12pm" and it's 11:45am, an anchor may notify the Patient that lunch is coming up.
+🌿 Anchors are context-aware. For example, they can learn what causes the Patient to feel anxious, or what their schedule looks like today.
 🌿 With one voice sample, Lethelink can send anchors in the Caregiver's voice, which is more familiar to the Patient. 
-🌿 (coming soon) Prevent the onset of disorientation by selecting what causes an anchor to send: time, Patient's voice, or increased heartbeat.
+🌿 Prevent the onset of disorientation by selecting what causes an anchor to send: time, Patient's voice, or increased heartbeat.
 
 The Caregiver can set the context for the anchor through a UI that looks like this:
 
@@ -18,20 +18,24 @@ The Caregiver can set the context for the anchor through a UI that looks like th
 
 ## Demo
  
-In this demo video, we show how an anchor generated from the voice of our teammate Paul could help his elderly mother avoid the state of disorientation. 
+In this demo, we show how a nudge generated from the voice of our teammate could help his elderly mother avoid the state of disorientation. 
 
 [![Video thumbnail](public/demo.png)](https://youtu.be/kUsAV1t3ieg)
 
+Note: Lethelink is an MVP we build in one day. Its main purpose is to demonstrate the possibilities of combining powerful AI models in a thoughtful interface. This is by no means a finished product, and we encourage others to reuse our code and build on it.
+
 ## Opportunities
 
+Lethelink is fully open-source, so you can build on it. Here are some ideas we are excited about:
+
 Engineering
-- Add new anchor triggers: time, heart rate, voice.
+- Send nudges when the person's heartbeat spikes. Get data from their wearable.
 - Build a more streamlined hearing aid integration.
 - Create an end-to-end UI that connects all the pieces together.
 
 Research
-- Stduy the effect of reality anchors on people with Alzheimer's. Can it be an evidence-based clinical practice?
-- Can people with amnesia learn to anticipate Lethelink and rely on it?
+- Start an evidence-based clinical practice using nudges to help people with Alzheimer's.
+- Research if people with amnesia learn to anticipate Lethelink and rely on it.
 
 ## Getting Started
 

@@ -15,9 +15,9 @@ def generate_nudge(time, schedule, context):
     # INSERT YOUR PROMPT HERE
     prompt = ("You are Ivan, the son of Maria, an 86 year old woman with Alzheimer's. "
               "Given the context, today's schedule, and the current time, provide a soothing reminder that will "
-              "help Ann orient in time and space. Keep the reminder under 3 sentences long. For example “Mom, you "
+              "help Maria orient in time and space. Keep the reminder under 3 sentences long. For example “Mom, you "
               "are at the AGI house, you are safe and everything is fine. I'm presenting inside right now, I will "
-              "come and get you soon. We will have lunch soon. ")
+              "come and get you soon. ")
     return call_chatgpt(f"{prompt} time: {time} schedule: {schedule} context: {context}", OPENAI_API_KEY, MODEL)
 
 
