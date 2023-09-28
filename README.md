@@ -9,7 +9,9 @@ Lethelink is an interface to create grounding messages for people who suffer fro
 Caregivers can use Lethelink to create nudges that ground their Patient in reality, remind them they are safe, and help them orient in time and space. 
 
 🌿 Anchors are context-aware. For example, they can learn what causes the Patient to feel anxious, or what their schedule looks like today.
-🌿 With one voice sample, Lethelink can send anchors in the Caregiver's voice, which is more familiar to the Patient. 
+
+🌿 With one voice sample, Lethelink can send anchors in the Caregiver's voice, which is more familiar to the Patient.
+
 🌿 Prevent the onset of disorientation by selecting what causes an anchor to send: time, Patient's voice, or increased heartbeat.
 
 The Caregiver can set the context for the anchor through a UI that looks like this:
@@ -22,7 +24,7 @@ In this demo, we show how a nudge generated from the voice of our teammate could
 
 [![Video thumbnail](public/demo.png)](https://youtu.be/kUsAV1t3ieg)
 
-Note: Lethelink is an MVP we build in one day. Its main purpose is to demonstrate the possibilities of combining powerful AI models in a thoughtful interface. This is by no means a finished product, and we encourage others to reuse our code and build on it.
+Note: Lethelink is an MVP we built in one day. Its main purpose is to demonstrate the possibilities of combining powerful AI models in a thoughtful interface. This is by no means a finished product, and we encourage others to reuse our code and build on it.
 
 ## Opportunities
 
