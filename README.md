@@ -1,4 +1,6 @@
-![Lethelink Logo](public/logo_with_footnote.png)
+<div align="center">
+ <img src="public/logo_with_footnote.png" alt="alt text" width="50%" />
+</div>
 
 # Lethelink
 
@@ -16,13 +18,19 @@ Caregivers can use Lethelink to create nudges that ground their Patient in reali
 
 The Caregiver can set the context for the anchor through a UI that looks like this:
 
-![Lethlink UI](public/ui.png) 
+<div align="center">
+ <img src="public/ui.png" alt="alt text" width="50%" />
+</div>
 
 ## Demo
  
 In this demo, we show how a nudge generated from the voice of our teammate could help his elderly mother avoid the state of disorientation. 
 
-[![Video thumbnail](public/demo.png)](https://youtu.be/kUsAV1t3ieg)
+<div align="center">
+    <a href="https://youtu.be/kUsAV1t3ieg">
+        <img src="public/demo.png" alt="Video thumbnail" width="50%" />
+    </a>
+</div>
 
 Note: Lethelink is an MVP we built in one day. Its main purpose is to demonstrate the possibilities of combining powerful AI models in a thoughtful interface. This is by no means a finished product, and we encourage others to reuse our code and build on it.
 
