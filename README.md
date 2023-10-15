@@ -32,7 +32,7 @@ In this demo, we show how a nudge generated from the voice of our teammate could
     </a>
 </div>
 
-Note: Lethelink is an MVP we built in one day. Its main purpose is to demonstrate the possibilities of combining powerful AI models in a thoughtful interface. This is by no means a finished product, and we encourage others to reuse our code and build on it.
+Note: Lethelink v.0.1 is an MVP we built in one day. Its main purpose is to demonstrate the possibilities of combining powerful AI models in a thoughtful interface. This is by no means a finished product, and we encourage others to reuse our code and build on it. We may continue to build this out in the future.
 
 ## Opportunities
 
